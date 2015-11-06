@@ -44,11 +44,11 @@ values is the same as in `Options.equals()`.
 `ap` transforms a value contained in `Option<T>` to `Option<TOut>` using a `callback`
 wrapped in another Option.
 **/
-//  public static function ap<T, U>(option : Option<T>, fopt: Option<T -> U>): Option<U>
-//    return switch option {
-//      case None: None;
-//      case Some(v): map(fopt, function(f) return f(v));
-//    };
+  public static function ap<T, U>(option : Option<T>, fopt: Option<T -> U>): Option<U>
+    return switch option {
+      case None: None;
+      case Some(v): map(fopt, function(f) return f(v));
+    };
 
 /**
 `flatMap` reduces an `Option<T>` value into an `Array<T>` value applying the `callback`

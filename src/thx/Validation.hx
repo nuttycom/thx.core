@@ -1,14 +1,13 @@
 package thx;
 
-import Thx;
+import thx.Either;
+import thx.Tuple;
+import thx.Validation;
+using thx.Functions;
 
-using thx.Functions.Functions2;
-using thx.Functions.Functions3;
-using thx.Functions.Functions4;
-using thx.Functions.Functions5;
-
+typedef VNel<E, A> = Validation<Nel<E>, A>;
 /**
- * A right-biased disjunctive type with applicative functor requiring a semigroup 
+ * A right-biased disjunctive type with applicative functor requiring a semigroup
  * on the left type. This is useful for composing validation functions.
  */
 abstract Validation<E, A> (Either<E, A>) from Either<E, A> {
