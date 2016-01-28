@@ -24,20 +24,22 @@ class TestMake {
       d : "D"
     }, f("A", 1, 0.2, "D"));
   }
+
+  public function testPolyConstructorFromTypedef() {
+    var f = Make.constructor(ConstructorPoly<Int>);
+    Assert.same({ a: 1, b: 2 }, f(1, 2));
+  }
 }
 
 @:sequence(c, b, a, d)
-// typedef ConstructorType = {
-//   var c : String;
-//   var b : Int;
-//   @:optional var a : Float;
-//   var d : String;
-// }
-
-
 typedef ConstructorType = {
   c : String,
   b : Int,
   ?a : Float,
   d : String
+}
+
+typedef ConstructorPoly<A> = {
+  a: A,
+  b: B
 }
