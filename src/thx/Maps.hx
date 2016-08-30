@@ -122,6 +122,16 @@ var result2 = (new Map() : Map<String, Int>).merge(map1, map2); // map1 and map2
   }
 
   /**
+   * Mutate the provided map by inserting the given value at the given key, 
+   * returning the updated data structure. Useful for when you want to pretend
+   * you're doing functional programming.
+   */
+  public static function unsafeInsert<TKey, TValue>(dest: IMap<TKey, TValue>, k: TKey, v: TValue): IMap<TKey, TValue> {
+    dest.set(k, v);
+    return dest;
+  }
+
+  /**
    * The way that Haxe specializes maps inhibits us from defining a Monoid
    * instance for maps. The recommended way to reduce an array of maps
    * is `Nel.nel(new Map(), maps).fold(Maps.semigroup())`
